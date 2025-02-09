@@ -76,8 +76,8 @@ h1 {
 }
 
 .category-box div:first-child {
-    font-weight: bold; /* Bold the category name */
-    margin-bottom: 10px; /* Add spacing between the name and the words */
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 #triesContainer {
@@ -104,22 +104,17 @@ h1 {
     background-color: white;
 }
 
-/* Fix buttons at the bottom of the page */
+/* Fix the position of "tries remaining" and buttons */
+#triesContainer,
 #buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    position: fixed; /* Fix buttons at the bottom */
-    bottom: 20px; /* Distance from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
+    position: sticky;
+    top: 20px; /* Adjust this value to control spacing from the top */
     background-color: #f0f0f0; /* Match the body background */
-    padding: 10px; /* Add some padding for better appearance */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    z-index: 1; /* Ensure they stay above other content */
+    padding: 10px 0; /* Add some padding for spacing */
 }
 
-/* Ensure button text is centered vertically and horizontally */
+/* Center button text vertically and horizontally */
 button {
     padding: 10px 20px;
     cursor: pointer;
@@ -130,13 +125,15 @@ button {
     display: flex; /* Use flexbox for centering */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
-    min-width: 120px; /* Optional: Set a minimum width for consistency */
+    min-width: 120px; /* Ensure buttons have a consistent width */
 }
 
+/* Ensure the message container doesn't push content down */
 #message {
     text-align: center;
     font-size: 1.2em;
     margin-top: 20px;
+    position: relative; /* Keep it in the normal flow */
 }
 
 #message .category-box {
