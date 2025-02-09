@@ -37,6 +37,8 @@ h1 {
 /* Add this to ensure consistent box sizing */
 .word-box, .category-box {
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    word-wrap: break-word; /* Allow long words to break and wrap */
+    white-space: normal; /* Allow text to wrap */
 }
 
 .word-box {
@@ -68,7 +70,6 @@ h1 {
 .category-box {
     color: black;
     padding: 15px;
-    margin: 5px 0;
     border-radius: 5px;
     text-align: center;
     font-weight: normal;
@@ -78,6 +79,7 @@ h1 {
     justify-content: center; /* Vertically center content */
     height: 100px; /* Match the height of word boxes */
     min-width: 0; /* Prevents boxes from expanding due to long text */
+    margin: 0; /* Remove default margin */
 }
 
 .category-box div:first-child {
@@ -85,7 +87,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* Ensure category boxes match word box spacing */
 .category-box + .category-box {
     margin-top: 10px; /* Match the gap between word boxes */
 }
@@ -148,6 +149,7 @@ button {
     margin-bottom: 5px; /* Add spacing between the name and the words */
 }
 
+/* Category Colors */
 .category-box.purple { background-color: #B981C5; }
 .category-box.blue { background-color: #B0C3EF; }
 .category-box.green { background-color: #A1C35B; }
