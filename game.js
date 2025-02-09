@@ -148,6 +148,32 @@ function checkGameEnd() {
     }
 }
 
+function playClickSound() {
+    const clickSound = document.getElementById('clickSound');
+    clickSound.currentTime = 0; // Reset audio to start
+    clickSound.play().catch(error => {
+        // Handle browser autoplay policies
+        console.log("Audio play failed:", error);
+    });
+}
+
+function toggleWord(word, element) {
+    if (!gameActive) return;
+    
+    const index = selectedWords.indexOf(word);
+    if (index === -1) {
+        if (selectedWords.length < 4) {
+            selectedWords.push(word);
+            element.classList.add('selected');
+            playClickSound(); // <-- Add this
+        }
+    } else {
+        selectedWords.splice(index, 1);
+        element.classList.remove('selected');
+        playClickSound(); // <-- Add this
+    }
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
