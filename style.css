@@ -5,14 +5,15 @@
     font-style: normal;
 }
 
+/* Body Layout */
 body {
-    font-family: 'Minecraftia', Arial, sans-serif; /* Fallback to Arial if Minecraftia fails to load */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Minecraftia', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
@@ -25,13 +26,21 @@ h1 {
     font-family: 'Minecraftia', Arial, sans-serif;
 }
 
-/* Ensure word boxes are the same size and text is centered */
+/* Game Grid */
 #gameGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 800px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px; /* Space between grid and tries */
+  width: 100%; /* Take full width of parent */
+}
+
+/* Main Game Container */
+#gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px; /* Match the width of the grid and categories */
 }
 
 .word-box {
@@ -54,10 +63,13 @@ h1 {
     color: white;
 }
 
-/* Ensure category boxes match the height and spacing of word boxes */
+/* Categories Container */
 #categoriesContainer {
-    width: 800px;
-    margin-bottom: 20px;
+  width: 100%; /* Match the width of the grid */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px; /* Match the gap of the word grid */
+  margin-bottom: 20px; /* Space between categories and grid */
 }
 
 .category-box {
@@ -80,11 +92,12 @@ h1 {
     margin-bottom: 10px; /* Add spacing between the name and the words */
 }
 
+/* Tries Container */
 #triesContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px; /* Space between tries and buttons */
 }
 
 #triesCircles {
@@ -104,16 +117,11 @@ h1 {
     background-color: white;
 }
 
-/* Fix buttons at the bottom of the page */
+/* Buttons */
 #buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    position: fixed; /* Fix buttons at the bottom */
-    bottom: 20px; /* Distance from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    z-index: 10; /* Ensure buttons are above other content */
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px; /* Space between buttons and message */
 }
 
 /* Ensure button text is centered vertically and horizontally */
@@ -130,10 +138,11 @@ button {
     min-width: 120px; /* Optional: Set a minimum width for buttons */
 }
 
+/* Message */
 #message {
-    text-align: center;
-    font-size: 1.2em;
-    margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px; /* Space above the message */
 }
 
 #message .category-box {
