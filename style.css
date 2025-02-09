@@ -34,11 +34,9 @@ h1 {
     width: 800px;
 }
 
-/* Add this to ensure consistent box sizing */
+/* Ensure consistent box sizing */
 .word-box, .category-box {
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-    word-wrap: break-word; /* Allow long words to break and wrap */
-    white-space: normal; /* Allow text to wrap */
 }
 
 .word-box {
@@ -82,13 +80,13 @@ h1 {
     margin: 0; /* Remove default margin */
 }
 
+.category-box + .category-box {
+    margin-top: 10px; /* Match the gap between word boxes */
+}
+
 .category-box div:first-child {
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-.category-box + .category-box {
-    margin-top: 10px; /* Match the gap between word boxes */
 }
 
 #triesContainer {
