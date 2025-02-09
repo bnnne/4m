@@ -5,15 +5,14 @@
     font-style: normal;
 }
 
-/* Body Layout */
 body {
-  font-family: 'Minecraftia', Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 20px;
+    font-family: 'Minecraftia', Arial, sans-serif; /* Fallback to Arial if Minecraftia fails to load */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
 }
 
 h1 {
@@ -26,21 +25,14 @@ h1 {
     font-family: 'Minecraftia', Arial, sans-serif;
 }
 
-/* Game Grid */
+/* Adjust the game grid and categories container to prevent pushing content down */
 #gameGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 20px; /* Space between grid and tries */
-  width: 100%; /* Take full width of parent */
-}
-
-/* Main Game Container */
-#gameContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 800px; /* Match the width of the grid and categories */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 800px;
+    margin-top: 160px; /* Add margin to account for fixed "tries remaining" section */
 }
 
 .word-box {
@@ -63,13 +55,11 @@ h1 {
     color: white;
 }
 
-/* Categories Container */
+/* Ensure category boxes match the height and spacing of word boxes */
 #categoriesContainer {
-  width: 100%; /* Match the width of the grid */
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px; /* Match the gap of the word grid */
-  margin-bottom: 20px; /* Space between categories and grid */
+    width: 800px;
+    margin-bottom: 20px;
+    margin-top: 20px; /* Add margin to separate from the grid */
 }
 
 .category-box {
@@ -92,12 +82,17 @@ h1 {
     margin-bottom: 10px; /* Add spacing between the name and the words */
 }
 
-/* Tries Container */
+/* Fix the "tries remaining" section */
 #triesContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px; /* Space between tries and buttons */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: fixed; /* Fix position */
+    top: 120px; /* Adjust this value based on your layout */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    z-index: 10; /* Ensure it's above other content */
 }
 
 #triesCircles {
@@ -117,11 +112,16 @@ h1 {
     background-color: white;
 }
 
-/* Buttons */
+/* Fix the buttons at the bottom */
 #buttons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px; /* Space between buttons and message */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: fixed; /* Fix buttons at the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    z-index: 10; /* Ensure buttons are above other content */
 }
 
 /* Ensure button text is centered vertically and horizontally */
@@ -138,11 +138,10 @@ button {
     min-width: 120px; /* Optional: Set a minimum width for buttons */
 }
 
-/* Message */
 #message {
-  text-align: center;
-  font-size: 1.2em;
-  margin-top: 20px; /* Space above the message */
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
 }
 
 #message .category-box {
