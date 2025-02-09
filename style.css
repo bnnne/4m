@@ -34,7 +34,7 @@ h1 {
     width: 800px;
 }
 
-/* Ensure consistent box sizing */
+/* Add this to ensure consistent box sizing */
 .word-box, .category-box {
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
@@ -59,34 +59,40 @@ h1 {
     color: white;
 }
 
-/* Category Boxes */
+/* Update the categories container to use grid layout */
 #categoriesContainer {
-    width: 800px;
-    margin-bottom: 20px;
+  width: 800px;
+  margin-bottom: 20px;
+  display: grid; /* Use grid for consistent spacing */
+  grid-template-columns: 1fr; /* Single column */
+  gap: 10px; /* Match the 10px gap of the word grid */
 }
 
+/* Category Boxes */
 .category-box {
-    color: black;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: normal;
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack category name and words vertically */
-    align-items: center; /* Horizontally center content */
-    justify-content: center; /* Vertically center content */
-    height: 100px; /* Match the height of word boxes */
-    min-width: 0; /* Prevents boxes from expanding due to long text */
-    margin: 0; /* Remove default margin */
-}
-
-.category-box + .category-box {
-    margin-top: 10px; /* Match the gap between word boxes */
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px; /* Exact same height as word boxes */
+  min-width: 0; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in height */
+  margin: 0; /* Remove default margins (now handled by grid gap) */
 }
 
 .category-box div:first-child {
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+/* Ensure category boxes match word box spacing */
+.category-box + .category-box {
+    margin-top: 10px; /* Match the gap between word boxes */
 }
 
 #triesContainer {
@@ -147,7 +153,6 @@ button {
     margin-bottom: 5px; /* Add spacing between the name and the words */
 }
 
-/* Category Colors */
 .category-box.purple { background-color: #B981C5; }
 .category-box.blue { background-color: #B0C3EF; }
 .category-box.green { background-color: #A1C35B; }
