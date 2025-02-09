@@ -25,12 +25,12 @@ h1 {
     font-family: 'Minecraftia', Arial, sans-serif;
 }
 
-/* Ensure the game grid and category boxes have enough space at the bottom */
+/* Ensure word boxes are the same size and text is centered */
 #gameGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    margin-bottom: 150px; /* Add enough space to prevent overlap */
+    margin-bottom: 20px;
     width: 800px;
 }
 
@@ -54,10 +54,21 @@ h1 {
     color: white;
 }
 
-/* Ensure the categories container has enough space at the bottom */
+/* Wrap game grid and categories to keep their height fixed */
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px; /* Adjust this as needed */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Make categories scrollable if they grow too much */
 #categoriesContainer {
     width: 800px;
-    margin-bottom: 150px; /* Add enough space to prevent overlap */
+    max-height: 200px; /* Adjust this based on your layout */
+    overflow-y: auto;
 }
 
 .category-box {
@@ -80,10 +91,15 @@ h1 {
     margin-bottom: 10px; /* Add spacing between the name and the words */
 }
 
-/* Adjust the tries container */
+/* Keep triesContainer fixed below the game grid */
 #triesContainer {
+    position: absolute;
+    bottom: 80px; /* Adjust spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -104,25 +120,12 @@ h1 {
     background-color: white;
 }
 
-/* Wrap the "tries remaining" and buttons in a fixed container */
-#fixedContainer {
-    position: fixed;
-    bottom: 20px; /* Distance from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    z-index: 10; /* Ensure it's above other content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Space between tries and buttons */
-    background-color: #f0f0f0; /* Match the background color */
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-}
-
-/* Adjust the buttons container */
+/* Keep buttons fixed at the bottom */
 #buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 10px;
 }
