@@ -25,14 +25,13 @@ h1 {
     font-family: 'Minecraftia', Arial, sans-serif;
 }
 
-/* Adjust the game grid and categories container to prevent pushing content down */
+/* Ensure the game grid and category boxes have enough space at the bottom */
 #gameGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 150px; /* Add enough space to prevent overlap */
     width: 800px;
-    margin-top: 160px; /* Add margin to account for fixed "tries remaining" section */
 }
 
 .word-box {
@@ -55,11 +54,10 @@ h1 {
     color: white;
 }
 
-/* Ensure category boxes match the height and spacing of word boxes */
+/* Ensure the categories container has enough space at the bottom */
 #categoriesContainer {
     width: 800px;
-    margin-bottom: 20px;
-    margin-top: 20px; /* Add margin to separate from the grid */
+    margin-bottom: 150px; /* Add enough space to prevent overlap */
 }
 
 .category-box {
@@ -82,17 +80,11 @@ h1 {
     margin-bottom: 10px; /* Add spacing between the name and the words */
 }
 
-/* Fix the "tries remaining" section */
+/* Adjust the tries container */
 #triesContainer {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
-    position: fixed; /* Fix position */
-    top: 120px; /* Adjust this value based on your layout */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    z-index: 10; /* Ensure it's above other content */
 }
 
 #triesCircles {
@@ -112,16 +104,27 @@ h1 {
     background-color: white;
 }
 
-/* Fix the buttons at the bottom */
-#buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    position: fixed; /* Fix buttons at the bottom */
+/* Wrap the "tries remaining" and buttons in a fixed container */
+#fixedContainer {
+    position: fixed;
     bottom: 20px; /* Distance from the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for exact centering */
-    z-index: 10; /* Ensure buttons are above other content */
+    z-index: 10; /* Ensure it's above other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between tries and buttons */
+    background-color: #f0f0f0; /* Match the background color */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+/* Adjust the buttons container */
+#buttons {
+    display: flex;
+    gap: 10px;
 }
 
 /* Ensure button text is centered vertically and horizontally */
