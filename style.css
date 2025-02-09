@@ -1,3 +1,4 @@
+/* Existing styles (unchanged) */
 @font-face {
     font-family: 'Minecraftia';
     src: url('Minecraftia-Regular.ttf') format('truetype');
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: 'Minecraftia', Arial, sans-serif; /* Fallback to Arial if Minecraftia fails to load */
+    font-family: 'Minecraftia', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +17,7 @@ body {
 }
 
 h1 {
-    font-family: 'Minecraftia', Arial, sans-serif; /* Apply Minecraft font to h1 */
+    font-family: 'Minecraftia', Arial, sans-serif;
     color: #333;
     margin-bottom: 30px;
 }
@@ -42,9 +43,9 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     user-select: none;
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    display: flex;
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
     min-height: 80px; /* Set a fixed height for all boxes */
     box-sizing: border-box; /* Ensure padding is included in the height */
 }
@@ -54,7 +55,7 @@ h1 {
     color: white;
 }
 
-/* Ensure category boxes match the height and spacing of word boxes */
+/* Ensure category boxes have the same height and spacing as word boxes */
 #categoriesContainer {
     width: 800px;
     margin-bottom: 20px;
@@ -67,10 +68,10 @@ h1 {
     border-radius: 5px;
     text-align: center;
     font-weight: normal;
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack category name and words vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text horizontally */
+    justify-content: center; /* Center text vertically */
     min-height: 80px; /* Match the height of word boxes */
     box-sizing: border-box; /* Ensure padding is included in the height */
 }
@@ -80,11 +81,17 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Fix the position of "tries remaining" and buttons */
 #triesContainer {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: #f0f0f0; /* Match the body background */
+    z-index: 1; /* Ensure it stays above other content */
+    padding: 10px 0; /* Add some padding */
 }
 
 #triesCircles {
@@ -104,17 +111,18 @@ h1 {
     background-color: white;
 }
 
-/* Fix the position of "tries remaining" and buttons */
-#triesContainer,
+/* Center text within buttons */
 #buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
     position: sticky;
-    top: 20px; /* Adjust this value to control spacing from the top */
+    top: 60px; /* Position below the tries container */
     background-color: #f0f0f0; /* Match the body background */
-    z-index: 1; /* Ensure they stay above other content */
-    padding: 10px 0; /* Add some padding for spacing */
+    z-index: 1; /* Ensure it stays above other content */
+    padding: 10px 0; /* Add some padding */
 }
 
-/* Center button text vertically and horizontally */
 button {
     padding: 10px 20px;
     cursor: pointer;
@@ -122,18 +130,16 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    display: flex;
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
     min-width: 120px; /* Ensure buttons have a consistent width */
 }
 
-/* Ensure the message container doesn't push content down */
 #message {
     text-align: center;
     font-size: 1.2em;
     margin-top: 20px;
-    position: relative; /* Keep it in the normal flow */
 }
 
 #message .category-box {
@@ -141,14 +147,15 @@ button {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    color: black; /* Ensure text is black */
+    color: black;
 }
 
 #message .category-box div:first-child {
-    font-weight: bold; /* Bold the category name */
-    margin-bottom: 5px; /* Add spacing between the name and the words */
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
+/* Category colors */
 .category-box.purple { background-color: #B981C5; }
 .category-box.blue { background-color: #B0C3EF; }
 .category-box.green { background-color: #A1C35B; }
