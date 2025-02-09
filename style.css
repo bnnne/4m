@@ -54,21 +54,10 @@ h1 {
     color: white;
 }
 
-/* Wrap game grid and categories to keep their height fixed */
-#gameContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 500px; /* Adjust this as needed */
-    overflow: hidden;
-    position: relative;
-}
-
-/* Make categories scrollable if they grow too much */
+/* Ensure category boxes match the height and spacing of word boxes */
 #categoriesContainer {
     width: 800px;
-    max-height: 200px; /* Adjust this based on your layout */
-    overflow-y: auto;
+    margin-bottom: 20px;
 }
 
 .category-box {
@@ -91,16 +80,11 @@ h1 {
     margin-bottom: 10px; /* Add spacing between the name and the words */
 }
 
-/* Keep triesContainer fixed below the game grid */
 #triesContainer {
-    position: absolute;
-    bottom: 80px; /* Adjust spacing */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 #triesCircles {
@@ -120,14 +104,16 @@ h1 {
     background-color: white;
 }
 
-/* Keep buttons fixed at the bottom */
+/* Fix buttons at the bottom of the page */
 #buttons {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 10px;
+    margin-bottom: 20px;
+    position: fixed; /* Fix buttons at the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    z-index: 10; /* Ensure buttons are above other content */
 }
 
 /* Ensure button text is centered vertically and horizontally */
